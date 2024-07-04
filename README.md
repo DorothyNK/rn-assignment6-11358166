@@ -48,9 +48,7 @@ Tap "Remove" on any product in the cart to remove it.
 
 
 
-
-
-
+THESE ARE THE SCREENSHOTS OF THE APP.
 
 ![Alt Text](assets/Screenshot1.png)
 
