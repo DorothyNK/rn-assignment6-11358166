@@ -4,7 +4,7 @@ import {
   Text,
   Button,
   StyleSheet,
-  Image, 
+  Image,
   TouchableOpacity,
   ScrollView,
 } from "react-native";
@@ -81,7 +81,7 @@ const CartScreen = ({ navigation }) => {
             <Image source={item.image} style={styles.cartImage} />
             <View style={styles.cartDetails}>
               <Text style={styles.cartItemName}>{item.name}</Text>
-              <Text style={styles.cartItemDescription}>{item.desc}</Text>
+              <Text style={styles.cartItemDescription}>{item.description}</Text>
               <Text style={styles.cartItemPrice}>{item.price}</Text>
               <TouchableOpacity
                 onPress={() => removeFromCart(item)}
