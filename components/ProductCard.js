@@ -9,8 +9,10 @@ import {
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const ProductCard = ({ product }) => {
-  const addToCart = async (product) => {
+// const ProductCard = ({ product }) => {
+//   const addToCart = async () => {
+  const ProductCard = ({ product, navigation }) => {
+    const addToCart = async () => {
     try {
       let cartItems = await AsyncStorage.getItem("cart");
       cartItems = cartItems ? JSON.parse(cartItems) : [];

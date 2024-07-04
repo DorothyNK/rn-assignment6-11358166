@@ -106,7 +106,7 @@ const HomeScreen = ({ navigation }) => {
       <View style={styles.productsWrapper}>
         <FlatList
           data={products}
-          renderItem={({ item }) => <ProductCard product={item} />}
+          renderItem={({ item }) => <ProductCard product={item} navigation={navigation}  />}
           keyExtractor={(item, index) => index.toString()}
         />
       </View>
