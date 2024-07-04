@@ -40,7 +40,7 @@ const cartItems = [
 ];
 
 const CartScreen = ({ navigation }) => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     const fetchCart = async () => {
@@ -55,34 +55,19 @@ const CartScreen = ({ navigation }) => {
 
     fetchCart();
   }, []);
-  const removeFromCart = async (itemToRemove) => {
+  
+  const removeFromCart = async (item) => {
     try {
-      let cartItems = await AsyncStorage.getItem("cart");
-      cartItems = cartItems ? JSON.parse(cartItems) : [];
-
-      const updatedCart = cartItems.filter(
-        (item) => item.id !== itemToRemove.id
-      );
-
+      // Remove item from AsyncStorage
+      let updatedCart = cart.filter((cartItem) => cartItem.id !== item.id);
       await AsyncStorage.setItem("cart", JSON.stringify(updatedCart));
-      setCartItems(updatedCart);
+
+      // Update state to re-render
+      setCart(updatedCart);
     } catch (error) {
-      console.error("Error removing from cart:", error);
+      console.error("Error removing item from cart:", error);
     }
   };
-
-  // const removeFromCart = async (item) => {
-  //   try {
-  //     // Remove item from AsyncStorage
-  //     let updatedCart = cart.filter((cartItem) => cartItem.id !== item.id);
-  //     await AsyncStorage.setItem("cart", JSON.stringify(updatedCart));
-
-  //     // Update state to re-render
-  //     setCart(updatedCart);
-  //   } catch (error) {
-  //     console.error("Error removing item from cart:", error);
-  //   }
-  // };
 
   return (
     <ScrollView style={styles.scrollContainer}>
